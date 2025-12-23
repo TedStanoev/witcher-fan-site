@@ -1,0 +1,61 @@
+@use '../../../styles/globals.scss' as *;
+
+$vertical-padding: 0.5rem;
+
+.Header {
+  @include flex-row-container;
+  @include side-padding;
+  @include apply-max-width;
+  @include full-width;
+
+  position: fixed;
+  height: 5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
+  font-size: $font-large;
+
+  .Header--Left-Content {
+    @include flex-row-container;
+    flex: none;
+    text-transform: uppercase;
+    align-items: center;
+    gap: 0.5rem;
+
+    h1 {
+      font-size: $font-big;
+    }
+  }
+
+  .Header--Right-Content {
+    @include flex-row-container;
+
+    flex: 1;
+
+    .Header--Right-Content--List {
+      @include flex-row-container;
+      @include full-width;
+
+      align-items: center;
+      justify-items: center;
+      justify-content: flex-end;
+
+      gap: 2.5rem;
+
+      li {
+        list-style: none;
+      }
+    }
+  }
+  a {
+    text-transform: uppercase;
+    font-size: $font-normal;
+    text-decoration: none;
+    color: $color-foreground;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

@@ -1,3 +1,4 @@
 export default function Home() {
-  return <div>Witcher 3 Fan Site</div>;
+
+  return <div className="Home-page">Witcher 3 Fan Site</div>;
 }
