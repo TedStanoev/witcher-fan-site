@@ -83,15 +83,18 @@ $font-gil-sans: var(--font-gill-sans-nova);
 }
 
 @mixin side-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
 
   @include screen(sm) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
-  
-  @include screen(md) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+
+  @include screen(lg) {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 

@@ -1,4 +1,6 @@
+import styles from './page.module.scss';
+
 export default function Home() {
 
-  return <div className="Home-page">Witcher 3 Fan Site</div>;
+  return <div className={styles['Home-Page']}>Witcher 3 Fan Site</div>;
 }

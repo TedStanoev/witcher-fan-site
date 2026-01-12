@@ -1,20 +1,35 @@
 @use '../../../styles/globals.scss' as *;
 
 $vertical-padding: 0.5rem;
+$header-height: 5rem;
+
+@mixin nav-button {
+  background-color: transparent;
+  border-radius: 30%;
+  border-color: $color-primary;
+}
 
 .Header {
-  @include flex-row-container;
-  @include side-padding;
-  @include apply-max-width;
   @include full-width;
+  @include flex-row-container;
 
   position: fixed;
-  height: 5rem;
-  justify-content: space-between;
-  gap: 1rem;
+  height: $header-height;
+  justify-content: center;
+
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
   font-size: $font-large;
+
+  .Header--Inner {
+    @include flex-row-container;
+    @include apply-max-width;
+    @include full-width;
+    @include side-padding;
+
+    justify-content: space-between;
+    gap: 1rem;
+  }
 
   .Header--Left-Content {
     @include flex-row-container;
@@ -46,8 +61,13 @@ $vertical-padding: 0.5rem;
       li {
         list-style: none;
       }
+
+      button {
+        @include nav-button;
+      }
     }
   }
+
   a {
     text-transform: uppercase;
     font-size: $font-normal;
@@ -56,6 +76,69 @@ $vertical-padding: 0.5rem;
 
     &:hover {
       color: $color-primary;
+    }
+  }
+
+  .Header--Menu-Button {
+    svg {
+      color: $color-primary;
+      fill: $color-primary;
+    }
+  }
+
+  .Header--Menu {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100dvh;
+    width: 100%;
+    top: 0;
+    left: 200%;
+    background-color: $color-background;
+
+    @include screen(sm) {
+      left: 110%;
+    }
+
+    .Header--Menu--Inner {
+      @include flex-col-container;
+      @include full-width;
+    }
+
+    .Header--Menu--Head {
+      @include side-padding;
+      height: $header-height;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      button {
+        @include nav-button;
+        color: $color-primary;
+        width: 3em;
+        height: 3em;
+      }
+    }
+
+    .Header--Menu--Body {
+      @include flex-col-container;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 1rem;
+      color: $color-primary;
+      text-align: center;
+    }
+
+    .Header--Menu--List {
+      @include flex-col-container;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+
+      li {
+        list-style: none;
+      }
     }
   }
 }
