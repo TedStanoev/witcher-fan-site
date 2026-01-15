@@ -13,6 +13,7 @@ $header-height: 5rem;
   @include full-width;
   @include flex-row-container;
 
+  z-index: 100;
   position: fixed;
   height: $header-height;
   justify-content: center;

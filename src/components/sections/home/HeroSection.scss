@@ -1,0 +1,21 @@
+@use '../../../styles/globals.scss' as *;
+
+
+#Hero-Section {
+  @include header-top-padding;
+  @include flex-col-container;
+  @include items-center;
+  @include min-height-viewport;
+
+  position: relative;
+
+  background: url('../../../../public/images/hero-background.jpg') no-repeat center
+    center;
+}
+
+#Hero-Section-Logo {
+  position: absolute;
+  margin: auto;
+
+  bottom: 6rem;
+}
