@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import gsap from 'gsap';
+import gsap, { ScrollTrigger } from '@/libs/gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
@@ -18,15 +18,29 @@ type Props = {
 };
 
 export default function Header({ id }: Props) {
+  const navRef = useRef<HTMLElement>(null);
   const logoTLRef = useRef<GSAPTimeline>(null);
 
   const { isMobile, isTablet } = useResponsive();
 
   useGSAP(() => {
-    gsap.from('#app-header', {
-      y: -500,
-      duration: 1.5,
-      ease: 'power2.inOut',
+    const showNav = gsap.from(navRef.current, {
+      yPercent: -100,
+      ease: 'power3.inOut',
+      paused: true,
+      delay: 1,
+    });
+
+    showNav.play();
+
+    new ScrollTrigger({
+      trigger: 'body',
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) =>
+        self.direction === 1
+          ? showNav.delay(0).reverse()
+          : showNav.delay(0).play(),
     });
 
     logoTLRef.current = gsap.timeline({ paused: true }).fromTo(
@@ -34,12 +48,12 @@ export default function Header({ id }: Props) {
       {
         scale: 1,
       },
-      { scale: 1.2 }
+      { scale: 1.2 },
     );
   }, []);
 
   return (
-    <nav id={id} className={styles['Header']}>
+    <nav ref={navRef} id={id} className={styles['Header']}>
       <div className={styles['Header--Inner']}>
         <Link
           href="/"
@@ -70,7 +84,7 @@ export default function Header({ id }: Props) {
             <>
               <div className={styles['Header--Right-Content--List']}>
                 <button
-                  className={styles["Header--Menu-Button"]}
+                  className={styles['Header--Menu-Button']}
                   aria-label="open-menu-button"
                 >
                   <HamburgerIcon

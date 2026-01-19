@@ -1,7 +1,6 @@
 @use '../../../styles/globals.scss' as *;
 
-
-#Hero-Section {
+.Hero-Section {
   @include header-top-padding;
   @include flex-col-container;
   @include items-center;
@@ -9,11 +8,16 @@
 
   position: relative;
 
-  background: url('../../../../public/images/hero-background.jpg') no-repeat center
-    center;
+  background: url('../../../../public/images/hero-background.jpg') no-repeat;
+
+  background-position: 52% center;
+
+  @include screen(sm) {
+    background-position: center center;
+  }
 }
 
-#Hero-Section-Logo {
+.Hero-Section-Title {
   position: absolute;
   margin: auto;
 

@@ -1,4 +1,5 @@
 import HeroSection from '@/components/sections/home/HeroSection';
+import SoundtrackSection from '@/components/sections/home/SoundtrackSection';
 
 import './page.scss';
 
@@ -6,10 +7,10 @@ export default function Home() {
   return (
     <div className="Home-Page">
       <div className="Scroll-Wrapper">
-        <div id="Hero-Section-Vignette" className="vignette">
+        <div className="Vignette">
           <HeroSection />
         </div>
-        <div style={{ height: '100vh' }}></div>
+        <SoundtrackSection />
       </div>
     </div>
   );

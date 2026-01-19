@@ -4,34 +4,6 @@
   @include full-width;
 }
 
-.vignette {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-
-.vignette::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  box-shadow: inset 0 0 150px 50px #000c;
-  
-  @include screen(lg) {
-    box-shadow: inset 0 0 100px 200px #000c;
-  }
-
-  @include screen(sm) {
-    box-shadow: inset 0 0 150px 100px #000c;
-  }
-
-  pointer-events: none; /* Allows you to still click the image underneath */
-}
-
 .Scroll-Wrapper {
   scroll-behavior: smooth;
   overflow: hidden;
