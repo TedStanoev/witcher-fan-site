@@ -74,12 +74,9 @@ $font-gil-sans: var(--font-gill-sans-nova);
 
 @mixin min-height-viewport {
   @include screen(md) {
-    min-height: 100dvh;
-  }
-  @include screen(lg) {
     min-height: 100vh;
   }
-  min-height: 95vh;
+  min-height: 100dvh;
 }
 
 @mixin apply-max-width {

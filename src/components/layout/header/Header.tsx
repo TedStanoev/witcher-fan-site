@@ -88,8 +88,8 @@ export default function Header({ id }: Props) {
                   aria-label="open-menu-button"
                 >
                   <HamburgerIcon
-                    width={50}
-                    height={50}
+                    width={45}
+                    height={45}
                     onClick={() => gsap.to('#nav-menu', { left: 0 })}
                   />
                 </button>

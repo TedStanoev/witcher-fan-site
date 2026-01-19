@@ -35,7 +35,7 @@ export default function SoundtrackSection() {
         sectionRef.current,
         { y: -10 },
         {
-          y: -250,
+          y: -150,
           scrollTrigger: {
             trigger: sectionRef.current,
             scrub: 1,

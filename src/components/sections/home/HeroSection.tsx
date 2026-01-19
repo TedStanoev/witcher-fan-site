@@ -3,7 +3,7 @@
 import { useMemo, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
-import useResponsive from '@/hooks/useResponsive';
+import useResponsive, { breakpoints } from '@/hooks/useResponsive';
 import gsap from '@/libs/gsap';
 
 import Witcher3ImgSrc from '../../../../public/images/the-wticher-hero.png';
@@ -77,32 +77,35 @@ export default function HeroSection({ id }: TProps) {
         },
       });
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
+      // Enable parallax effect only on laptop and up
+      gsap.matchMedia().add(`(min-width: ${breakpoints.laptop}px)`, () => {
+        const handleMouseMove = (e: MouseEvent) => {
+          const { clientX, clientY } = e;
 
-        if (typeof window === 'undefined') return;
+          if (typeof window === 'undefined') return;
 
-        const xPercent = clientX / window.innerWidth - 0.5;
-        const yPercent = clientY / window.innerHeight - 0.5;
+          const xPercent = clientX / window.innerWidth - 0.5;
+          const yPercent = clientY / window.innerHeight - 0.5;
 
-        if (isScrollTriggered.current) {
+          if (isScrollTriggered.current) {
+            heroSectionMoveToX(xPercent * 20);
+            logoMoveToX(xPercent * 50);
+            return;
+          }
+
           heroSectionMoveToX(xPercent * 20);
+          heroSectionMoveToY(yPercent * 20);
+
           logoMoveToX(xPercent * 50);
-          return;
-        }
+          logoMoveToY(yPercent * 50);
+        };
 
-        heroSectionMoveToX(xPercent * 20);
-        heroSectionMoveToY(yPercent * 20);
-
-        logoMoveToX(xPercent * 50);
-        logoMoveToY(yPercent * 50);
-      };
-
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        window.removeEventListener('mousemove', handleMouseMove);
-      };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          window.removeEventListener('mousemove', handleMouseMove);
+        };
+      });
     },
     { scope: sectionRef },
   );

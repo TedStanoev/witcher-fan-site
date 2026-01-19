@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from 'react';
 
-const breakpoints = {
+export const breakpoints = {
   mobile: 450,
   tablet: 600,
   laptop: 970,
