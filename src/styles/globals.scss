@@ -2,19 +2,21 @@
   --background: #040304;
   --foreground: #ffffff;
   --primary: #ffdc8f;
+  --border: #949473;
 
-  --font-small: 14px;
-  --font-normal: 18px;
-  --font-big: 22px;
-  --font-large: 28px;
-  --font-xl: 40px;
-  --font-xxl: 70px;
+  --font-small: 18px;
+  --font-normal: 28px;
+  --font-big: 55px;
+  --font-large: 110px;
+  --font-xl: 140px;
+  --font-xxl: 180px;
   --font-title: 120px;
 }
 
 $color-foreground: var(--foreground);
 $color-primary: var(--primary);
 $color-background: var(--background);
+$color-border: var(--border);
 
 $breakpoint-sm: 450px;
 $breakpoint-md: 600px;
@@ -49,6 +51,14 @@ $font-gil-sans: var(--font-gill-sans-nova);
     }
   } @else if $breakpoint == xl {
     @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == xxl {
+    @media (min-width: $breakpoint-xxl) {
+      @content;
+    }
+  } @else if $breakpoint == 3xl {
+    @media (min-width: $breakpoint-3xl) {
       @content;
     }
   }

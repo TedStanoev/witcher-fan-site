@@ -20,7 +20,7 @@ $header-height: 5rem;
 
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
-  font-size: $font-large;
+  font-size: $font-normal;
 
   .Header--Inner {
     @include flex-row-container;
@@ -40,7 +40,7 @@ $header-height: 5rem;
     gap: 0.5rem;
 
     h1 {
-      font-size: $font-big;
+      font-size: $font-normal;
     }
   }
 
@@ -71,7 +71,7 @@ $header-height: 5rem;
 
   a {
     text-transform: uppercase;
-    font-size: $font-normal;
+    font-size: $font-small;
     text-decoration: none;
     color: $color-foreground;
 

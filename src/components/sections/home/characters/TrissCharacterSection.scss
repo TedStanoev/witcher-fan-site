@@ -1,0 +1,68 @@
+@use '../../../../styles/globals.scss' as *;
+@use '../CharactersSection.scss' as *;
+
+.Triss-Character-Section {
+  @include character-section;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    background: url(../../../../../public/images/triss-background.jpg) no-repeat
+      center center;
+    background-size: cover;
+    opacity: 1;
+    z-index: -1;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    filter: contrast(120%) brightness(40%);
+    border: 0.5px solid $color-border;
+  }
+}
+
+.Triss-Character-Section--Name {
+  font-size: $font-xl;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-primary;
+  margin: 0;
+}
+
+.Triss-Character-Section--Image {
+  filter: drop-shadow(rgb(0, 0, 0) 5px 15px 19px) contrast(120%) brightness(75%);
+  position: absolute;
+
+  right: 5rem;
+  bottom: 10%;
+
+  width: 40rem;
+  height: 55rem;
+}
+
+.Triss-Character-Section--Description-Wrapper {
+  @include flex-col-container;
+  width: 60%;
+  height: 100%;
+  justify-self: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  align-items: center;
+  margin: 0 10%;
+}
+
+.Triss-Character-Section--Inner-Wrapper {
+  width: 100vw;
+  height: 100%;
+}
+
+.Triss-Character-Section--Quote {
+  font-size: $font-large;
+  font-style: italic;
+  color: var(--foreground);
+  text-align: center;
+  width: 30rem;
+  justify-self: center;
+}

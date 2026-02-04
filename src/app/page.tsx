@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/home/HeroSection';
 import SoundtrackSection from '@/components/sections/home/SoundtrackSection';
+import CharactersSection from '@/components/sections/home/CharactersSection';
 
 import './page.scss';
 
@@ -10,6 +11,7 @@ export default function Home() {
         <div className="Vignette">
           <HeroSection />
         </div>
+        <CharactersSection />
         <SoundtrackSection />
       </div>
     </div>
