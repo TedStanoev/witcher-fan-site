@@ -3,16 +3,23 @@
 import { useGSAP } from '@gsap/react';
 
 import CharacterSectionTemplate from '@/components/templates/CharacterSectionTemplate';
+import useParallaxEffect from '@/libs/gsap/animations/useParallaxTransition';
 
 import YenneferSrc from '../../../../../public/images/yennefer.png';
 import YenneferBGSrc from '../../../../../public/images/yennefer-background.png';
 
 import './YenneferCharacterSection.scss';
 
-type TProps = { zIndex?: number; };
+type TProps = { zIndex?: number };
 
 export default function YenneferCharacterSection({ zIndex }: TProps) {
   useGSAP(() => {}, []);
+
+  useParallaxEffect(
+    '#yennefer-character-section',
+    '.Yennefer-Character-Section--Background',
+    '.Yennefer-Character-Section--Image',
+  );
 
   return (
     <CharacterSectionTemplate
@@ -26,7 +33,7 @@ export default function YenneferCharacterSection({ zIndex }: TProps) {
       characterQuote={`"I'm not heartless, I've just learned how to use my heart less."`}
       zIndex={zIndex}
     />
-  )
+  );
 
   // return (
   //   <section id={id} className="Yennefer-Character-Section">

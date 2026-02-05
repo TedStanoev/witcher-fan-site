@@ -1,41 +1,21 @@
 'use client';
 
-import Image from 'next/image';
-
 import CiriSrc from '../../../../../public/images/ciri.png';
 import CiriBGSrc from '../../../../../public/images/ciri-background.jpg';
 
 import './CiriCharacterSection.scss';
 import CharacterSectionTemplate from '@/components/templates/CharacterSectionTemplate';
-import { useGSAP } from '@gsap/react';
-import gsap, { SplitText } from '@/libs/gsap';
+import useParallaxEffect from '@/libs/gsap/animations/useParallaxTransition';
 
 type TProps = { zIndex?: number };
 
 export default function CiriCharacterSection({ zIndex }: TProps) {
-  useGSAP(() => {
-    gsap.matchMedia().add(`(max-width: 1024px)`, () => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: '#ciri-character-section',
-            start: 'top bottom',
-            end: 'top top',
-            scrub: 1,
-          },
-        })
-        .from('.Ciri-Character-Section--Background', {
-          scale: 2,
-        })
-        .from(
-          '.Ciri-Character-Section--Image',
-          {
-            scale: 0.5,
-          },
-          '<0',
-        );
-    });
-  }, []);
+  useParallaxEffect(
+    '#ciri-character-section',
+    '.Ciri-Character-Section--Background',
+    '.Ciri-Character-Section--Image',
+  );
+
   return (
     <CharacterSectionTemplate
       id="ciri-character-section"
