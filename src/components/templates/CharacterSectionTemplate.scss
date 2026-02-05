@@ -1,12 +1,12 @@
-@use '../../../../styles/globals.scss' as *;
-@use '../CharactersSection.scss' as *;
+@use '../../styles/globals.scss' as *;
+@use '../sections/home/CharactersSection.scss' as *;
 
-.Geralt-Character-Section {
+@mixin character-section-template {
   @include character-section;
   position: relative;
 }
 
-.Geralt-Character-Section--Background {
+@mixin character-section-background {
   position: absolute;
 
   top: 0;
@@ -16,8 +16,8 @@
 
   object-fit: cover;
   z-index: -1;
-  background: url(../../../../../public/images/geralt-background.jpg) no-repeat
-    center center;
+  //   background: url(../../../../../public/images/geralt-background.jpg) no-repeat
+  //     center center;
   border: 0.5px solid $color-border;
   filter: contrast(120%) brightness(40%);
 
@@ -29,7 +29,7 @@
   }
 }
 
-.Geralt-Character-Section--Name {
+@mixin character-section-name {
   font-size: $font-big;
   text-transform: uppercase;
   text-align: start;
@@ -52,7 +52,7 @@
   }
 }
 
-.Geralt-Character-Section--Image {
+@mixin character-section-image {
   filter: drop-shadow(rgb(0, 0, 0) 5px 15px 19px) contrast(120%) brightness(75%);
   position: absolute;
 
@@ -78,7 +78,7 @@
   }
 }
 
-.Geralt-Character-Section--Description-Wrapper {
+@mixin character-section-description-wrapper {
   @include flex-col-container;
   height: 100%;
   justify-content: flex-end;
@@ -103,16 +103,12 @@
   }
 }
 
-.Geralt-Character-Section--Inner-Wrapper {
+@mixin character-section-inner-wrapper {
   width: 100vw;
   height: 100%;
-
-  .Geralt-Character-Section--Quote {
-    opacity: 0;
-  }
 }
 
-.Geralt-Character-Section--Outer-Wrapper {
+@mixin character-section-outer-wrapper {
   width: 100vw;
   height: 100%;
   position: absolute;
@@ -120,19 +116,14 @@
   left: 0;
   z-index: 2;
   pointer-events: none;
-
-  .Geralt-Character-Section--Name {
-    color: transparent;
-    -webkit-text-stroke: 0.05px #fde68a;
-  }
 }
 
-.Geralt-Character-Section--Quote--Wrapper {
+@mixin character-section-quote-wrapper {
   width: 100%;
   display: flex;
 }
 
-.Geralt-Character-Section--Quote {
+@mixin character-section-quote {
   font-size: clamp($font-normal, 3vw, $font-big);
   font-style: italic;
   color: var(--foreground);
@@ -157,4 +148,53 @@
     margin-left: 5rem;
     width: 100%;
   }
+}
+
+@mixin character-name-outline {
+  color: transparent;
+  -webkit-text-stroke: 0.05px #fde68a;
+}
+
+.Geralt-Character-Section-Template {
+  @include character-section-template;
+}
+
+.Geralt-Character-Section--Background {
+  @include character-section-background;
+}
+
+.Geralt-Character-Section--Name {
+  @include character-section-name;
+}
+
+.Geralt-Character-Section--Image {
+  @include character-section-image;
+}
+
+.Geralt-Character-Section--Description-Wrapper {
+  @include character-section-description-wrapper;
+}
+
+.Geralt-Character-Section--Inner-Wrapper {
+  @include character-section-inner-wrapper;
+
+  //   .Geralt-Character-Section--Quote {
+  //     opacity: 0;
+  //   }
+}
+
+.Geralt-Character-Section--Outer-Wrapper {
+  @include character-section-outer-wrapper;
+
+  //   .Geralt-Character-Section--Name {
+  //     @include character-name-outline;
+  //   }
+}
+
+.Geralt-Character-Section--Quote--Wrapper {
+  @include character-section-quote-wrapper;
+}
+
+.Geralt-Character-Section--Quote {
+  @include character-section-quote;
 }

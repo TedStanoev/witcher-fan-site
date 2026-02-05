@@ -3,27 +3,50 @@
 import Image from 'next/image';
 
 import CiriSrc from '../../../../../public/images/ciri.png';
+import CiriBGSrc from '../../../../../public/images/ciri-background.jpg';
 
 import './CiriCharacterSection.scss';
+import CharacterSectionTemplate from '@/components/templates/CharacterSectionTemplate';
+import { useGSAP } from '@gsap/react';
+import gsap, { SplitText } from '@/libs/gsap';
 
-type TProps = { id?: string };
+type TProps = { zIndex?: number };
 
-export default function CiriCharacterSection({ id }: TProps) {
+export default function CiriCharacterSection({ zIndex }: TProps) {
+  useGSAP(() => {
+    gsap.matchMedia().add(`(max-width: 1024px)`, () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '#ciri-character-section',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: 1,
+          },
+        })
+        .from('.Ciri-Character-Section--Background', {
+          scale: 2,
+        })
+        .from(
+          '.Ciri-Character-Section--Image',
+          {
+            scale: 0.5,
+          },
+          '<0',
+        );
+    });
+  }, []);
   return (
-    <section id={id} className="Ciri-Character-Section">
-      <Image
-        className="Ciri-Character-Section--Image"
-        src={CiriSrc}
-        alt="Ciri"
-      />
-      <div className="Ciri-Character-Section--Inner-Wrapper">
-        <div className="Ciri-Character-Section--Description-Wrapper">
-          <h2 className="Ciri-Character-Section--Name">
-            Cirilla Fiona Elen Riannon
-          </h2>
-          <p className="Ciri-Character-Section--Quote">{`"I can't keep running. I have to face my destiny... but I'll do it on my own terms."`}</p>
-        </div>
-      </div>
-    </section>
+    <CharacterSectionTemplate
+      id="ciri-character-section"
+      classNamePrefix="Ciri"
+      backgroundImgSrc={CiriBGSrc}
+      backgroundAltText="Ciri background"
+      characterImgSrc={CiriSrc}
+      characterAltText="Ciri"
+      characterName="Cirilla of Cintra"
+      characterQuote={`"I can't keep running. I have to face my destiny... but I'll do it on my own terms."`}
+      zIndex={zIndex}
+    />
   );
 }

@@ -110,14 +110,11 @@ export default function CharactersSection({ id }: TProps) {
           muted
           loop
         />
-        {/* <h1 ref={headerRef} className="Characters-Section--Header">
-          Characters
-        </h1> */}
         <div ref={scrollRef} className="Character-Section--Container">
-          <GeraltCharacterSection />
-          <CiriCharacterSection />
-          <YenneferCharacterSection />
-          <TrissCharacterSection />
+          <GeraltCharacterSection zIndex={5} />
+          <CiriCharacterSection zIndex={4} />
+          {/* <YenneferCharacterSection />
+          <TrissCharacterSection /> */}
         </div>
       </div>
     </section>
