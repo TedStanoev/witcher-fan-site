@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from '@/libs/gsap';
+import { breakpoints } from '@/hooks/useResponsive';
 
 import GeraltCharacterSection from './characters/GeraltCharacterSection';
 import CiriCharacterSection from './characters/CiriCharacterSection';
@@ -10,7 +11,6 @@ import YenneferCharacterSection from './characters/YenneferCharacterSection';
 import TrissCharacterSection from './characters/TrissCharacterSection';
 
 import './CharactersSection.scss';
-import { breakpoints } from '@/hooks/useResponsive';
 
 type TProps = { id?: string };
 
@@ -113,8 +113,8 @@ export default function CharactersSection({ id }: TProps) {
         <div ref={scrollRef} className="Character-Section--Container">
           <GeraltCharacterSection zIndex={5} />
           <CiriCharacterSection zIndex={4} />
-          {/* <YenneferCharacterSection />
-          <TrissCharacterSection /> */}
+          <YenneferCharacterSection zIndex={3} />
+          <TrissCharacterSection zIndex={2} />
         </div>
       </div>
     </section>

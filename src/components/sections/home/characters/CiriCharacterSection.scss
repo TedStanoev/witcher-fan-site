@@ -44,10 +44,6 @@
     margin-top: -20%;
   }
 
-  @include screen(md) {
-   
-  }
-
   @include screen(lg) {
     flex-direction: column-reverse;
     width: auto;

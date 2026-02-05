@@ -1,29 +1,26 @@
 'use client';
 
-import Image from 'next/image';
+import CharacterSectionTemplate from '@/components/templates/CharacterSectionTemplate';
 
 import TrissSrc from '../../../../../public/images/triss-cut.png';
+import TrissBGSrc from '../../../../../public/images/triss-background.jpg';
 
 import './TrissCharacterSection.scss';
 
-type TProps = { id?: string };
+type TProps = { zIndex?: number };
 
-export default function TrissCharacterSection({ id }: TProps) {
+export default function TrissCharacterSection({ zIndex }: TProps) {
   return (
-    <section id={id} className="Triss-Character-Section">
-      <Image
-        className="Triss-Character-Section--Image"
-        src={TrissSrc}
-        alt="Triss"
-      />
-      <div className="Triss-Character-Section--Inner-Wrapper">
-        <div className="Triss-Character-Section--Description-Wrapper">
-          <h2 className="Triss-Character-Section--Name">
-            Triss Merigold
-          </h2>
-          <p className="Triss-Character-Section--Quote">{`"I can't keep running. I have to face my destiny... but I'll do it on my own terms."`}</p>
-        </div>
-      </div>
-    </section>
+    <CharacterSectionTemplate
+      id="triss-character-section"
+      classNamePrefix="Triss"
+      backgroundImgSrc={TrissBGSrc}
+      backgroundAltText="Triss background"
+      characterImgSrc={TrissSrc}
+      characterAltText="Triss Merigold"
+      characterName="Triss Merigold"
+      characterQuote={`"Winning a war takes three things. Coin, coin, and even more coin."`}
+      zIndex={zIndex}
+    />
   );
 }
