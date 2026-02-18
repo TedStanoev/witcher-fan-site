@@ -1,0 +1,52 @@
+@use '../../../styles/globals.scss' as *;
+
+.Story-Section {
+  @include flex-col-container;
+  @include min-height-viewport;
+
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  flex-shrink: 0;
+
+  justify-content: space-between;
+  padding-bottom: 10vh;
+}
+
+.Story-Section--Background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+  z-index: -1;
+}
+
+.Story-Section--Heading {
+  @include full-width;
+
+  text-transform: uppercase;
+  height: fit-content;
+  text-align: center;
+
+  h1 {
+    font-size: $font-xl;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: $font-big;
+    margin: 0;
+  }
+}
+
+.Story-Section--Card-Container {
+  @include flex-row-container;
+  width: 100%;
+  justify-content: center;
+  gap: 10rem;
+}

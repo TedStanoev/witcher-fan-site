@@ -31,18 +31,29 @@ export default function SoundtrackSection() {
         { type: 'words' },
       );
 
-      gsap.fromTo(
-        sectionRef.current,
-        { y: -10 },
-        {
-          y: -150,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            scrub: 1,
-          },
-          ease: 'power2.inOut',
-        },
-      );
+      // gsap.to(sectionRef.current, {
+      //   yPercent: -15,
+      //   scrollTrigger: {
+      //     trigger: sectionRef.current,
+      //     start: 'top 120%',
+      //     end: 'top center',
+      //     scrub: 1,
+      //   },
+      //   ease: 'power1.inOut',
+      // });
+
+      // gsap.fromTo(
+      //   sectionRef.current,
+      //   { y: -10 },
+      //   {
+      //     y: -150,
+      //     scrollTrigger: {
+      //       trigger: sectionRef.current,
+      //       scrub: 1,
+      //     },
+      //     ease: 'power2.inOut',
+      //   },
+      // );
 
       gsap
         .timeline({
