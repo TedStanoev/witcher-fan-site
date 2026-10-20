@@ -13,41 +13,41 @@ import './YenneferCharacterSection.scss';
 type TProps = { zIndex?: number };
 
 export default function YenneferCharacterSection({ zIndex }: TProps) {
-  useGSAP(() => {}, []);
+	useGSAP(() => {}, []);
 
-  useParallaxEffect(
-    '#yennefer-character-section',
-    '.Yennefer-Character-Section--Background',
-    '.Yennefer-Character-Section--Image',
-  );
+	useParallaxEffect(
+		'#yennefer-character-section',
+		'.Yennefer-Character-Section--Background',
+		'.Yennefer-Character-Section--Image',
+	);
 
-  return (
-    <CharacterSectionTemplate
-      id="yennefer-character-section"
-      classNamePrefix="Yennefer"
-      backgroundImgSrc={YenneferBGSrc}
-      backgroundAltText="Yennefer background"
-      characterImgSrc={YenneferSrc}
-      characterAltText="Yennefer of Vengerberg"
-      characterName="Yennefer of Vengerberg"
-      characterQuote={`"I'm not heartless, I've just learned how to use my heart less."`}
-      zIndex={zIndex}
-    />
-  );
+	return (
+		<CharacterSectionTemplate
+			id="yennefer-character-section"
+			classNamePrefix="Yennefer"
+			backgroundImgSrc={YenneferBGSrc}
+			backgroundAltText="Yennefer background"
+			characterImgSrc={YenneferSrc}
+			characterAltText="Yennefer of Vengerberg"
+			characterName="Yennefer of Vengerberg"
+			characterQuote={`"I'm not heartless, I've just learned how to use my heart less."`}
+			zIndex={zIndex}
+		/>
+	);
 
-  // return (
-  //   <section id={id} className="Yennefer-Character-Section">
-  //     <Image
-  //       className="Yennefer-Character-Section--Image"
-  //       src={YenneferSrc}
-  //       alt="Yennefer of Vengerberg"
-  //     />
-  //     <div className="Yennefer-Character-Section--Inner-Wrapper">
-  //       <div className="Yennefer-Character-Section--Description-Wrapper">
-  //         <h2 className="Yennefer-Character-Section--Name">Yennefer of Vengerberg</h2>
-  //         <p className="Yennefer-Character-Section--Quote">{`"I'm not heartless, I've just learned how to use my heart less."`}</p>
-  //       </div>
-  //     </div>
-  //   </section>
-  // );
+	// return (
+	//   <section id={id} className="Yennefer-Character-Section">
+	//     <Image
+	//       className="Yennefer-Character-Section--Image"
+	//       src={YenneferSrc}
+	//       alt="Yennefer of Vengerberg"
+	//     />
+	//     <div className="Yennefer-Character-Section--Inner-Wrapper">
+	//       <div className="Yennefer-Character-Section--Description-Wrapper">
+	//         <h2 className="Yennefer-Character-Section--Name">Yennefer of Vengerberg</h2>
+	//         <p className="Yennefer-Character-Section--Quote">{`"I'm not heartless, I've just learned how to use my heart less."`}</p>
+	//       </div>
+	//     </div>
+	//   </section>
+	// );
 }
